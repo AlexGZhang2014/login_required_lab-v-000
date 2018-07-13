@@ -18,4 +18,9 @@ class SessionsController < ApplicationController
     session.delete :name
     redirect_to controller: "sessions", action: "new"
   end
+  
+  private
+    def sesh_params
+      params.require(session).permit(:name)
+    end
 end
